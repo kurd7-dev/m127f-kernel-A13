@@ -17,12 +17,9 @@ menuconfig MALI_DDK_VERSION
 	  To compile this driver as a module, choose M here:
 	  this will generate a single module, called mali_kbase.
 choice
-	prompt "version Configuration"
-	depends on MALI_DDK_VERSION
-	default MALI_BIFROST_R38P1 if $(PLATFORM_VERSION) >= 13
-	default MALI_BIFROST_R32P1 if $(PLATFORM_VERSION) = 12
-	default MALI_BIFROST_R26P0 if $(PLATFORM_VERSION) = 11
-	default MALI_BIFROST_R19P0 if $(PLATFORM_VERSION) < 11
+        prompt "version Configuration"
+        depends on MALI_DDK_VERSION
+        default MALI_BIFROST_R38P1
 	help
 	  Select the gpu support version.
 config MALI_BIFROST_R19P0

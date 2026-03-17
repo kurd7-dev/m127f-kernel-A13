@@ -1,0 +1,17 @@
+out/
+AnyKernel3/
+build.log
+build-success.log
+*.zip
+*.tar
+*.img
+*.lz4
+*.ko
+*.o
+*.a
+*.cmd
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+.devcontainer/
+security/samsung/defex_lsm/pack_rules
