@@ -2,17 +2,35 @@
 set -euo pipefail
 
 # =========================
-# SETTINGS
+# DEFAULTS
 # =========================
-DEFCONFIG="${1:-physwizz}"
+DEFCONFIG="physwizz"
 OUT="out"
 THREADS="$(nproc)"
 LOG="build.log"
+DO_CLEAN=0
 
 CLANG_DIR="$(pwd)/toolchain/clang/host/linux-x86/clang-r383902/bin"
-
-# Change this if your 32-bit toolchain is gnueabihf instead of gnueabi
 CROSS32="arm-linux-gnueabi-"
+
+# =========================
+# ARGUMENTS
+# Usage:
+#   ./build.sh
+#   ./build.sh physwizz
+#   ./build.sh --clean
+#   ./build.sh physwizz --clean
+# =========================
+for arg in "$@"; do
+  case "$arg" in
+    --clean)
+      DO_CLEAN=1
+      ;;
+    *)
+      DEFCONFIG="$arg"
+      ;;
+  esac
+done
 
 # =========================
 # ENVIRONMENT
@@ -21,7 +39,6 @@ export ARCH=arm64
 export SUBARCH=arm64
 export PLATFORM_VERSION=13
 export ANDROID_PLATFORM_VERSION=13
-
 export PATH="$CLANG_DIR:$PATH"
 
 export CC=clang
@@ -60,17 +77,17 @@ echo "============================="
 echo " Kernel Build Script"
 echo " Defconfig : $DEFCONFIG"
 echo " Threads   : $THREADS"
-echo " Clang     : $(command -v clang)"
-echo " AArch64 AS: $(command -v aarch64-linux-gnu-as)"
-echo " ARM32 AS  : $(command -v ${CROSS32}as)"
+echo " Clean     : $DO_CLEAN"
 echo "============================="
 
 # =========================
 # CLEAN
 # =========================
-echo "[*] Cleaning build directory..."
-rm -rf "$OUT"
-rm -f "$LOG"
+if [ "$DO_CLEAN" -eq 1 ]; then
+  echo "[*] Cleaning build directory..."
+  rm -rf "$OUT"
+  rm -f "$LOG"
+fi
 
 # =========================
 # CONFIG
