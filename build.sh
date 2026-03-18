@@ -4,7 +4,7 @@ set -euo pipefail
 # =========================
 # DEFAULTS
 # =========================
-DEFCONFIG="physwizz"
+DEFCONFIG=${1:-kurd7}
 OUT="out"
 THREADS="$(nproc)"
 LOG="build.log"
