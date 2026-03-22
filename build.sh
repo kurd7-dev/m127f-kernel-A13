@@ -97,7 +97,7 @@ make O="$OUT" "${DEFCONFIG}_defconfig"
 
 echo "[*] Syncing config..."
 set +o pipefail
-yes "" | make O="$OUT" oldconfig
+make O="$OUT" olddefconfig
 set -o pipefail
 
 # =========================
