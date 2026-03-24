@@ -1281,7 +1281,7 @@ int __sock_create(struct net *net, int family, int type, int protocol,
 	 * Now to bump the refcnt of the [loadable] module that owns this
 	 * socket at sock_release time we decrement its refcnt.
 	 */
-	if (!try_module_get(sock->ops->owner))
+	if (!sock->ops || !try_module_get(sock->ops->owner))
 		goto out_module_busy;
 
 	/*
