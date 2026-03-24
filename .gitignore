@@ -1,5 +1,7 @@
 out/
 AnyKernel3/
+AnyKernel3/
+anykernel3/
 build.log
 build-success.log
 *.zip
