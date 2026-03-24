@@ -1,0 +1,64 @@
+DEBUG HISTORY
+====
+K2603231629
+----
+@ Ramdump Auto Comment
+@ SM-M127F / EXYNOS3830 EVT 0.1 / PARA000x / ------------ / NPYD2 / 0 / 0
+@ ---------------- / -------------- / REV 2 / 4.0G SEC / RST_STAT(0x20000000) / KP (1)(K1D0S0P0) [43] TMU 49,
+@ VER 12 / AP M127FXXS9DXJ3 V 86771667 / CP 
+
+@= KERNEL PANIC / PANIC = Fatal exception / PC = __sock_create+0x154/0x27c / ESR = DABT
+
+
+@ Power
+
+JIGONB (M) 
+MAIN ONSRC:   02
+MAIN OFFSRC:  00
+MAIN INT:     00 91 00 00 00 00
+MAIN STATS:   12 00
+
+@ Freq
+
+LIT : [  102.894787]  2210Mhz ->  2002Mhz
+BIG : [  102.888147]  2210Mhz ->  2002Mhz
+MIF : [  102.215335]  1352Mhz ->  1539Mhz
+INT : 
+G3D : 
+
+@ Summary
+
+<0>[  102.896769]  [1:      hciconfig:12266] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
+
+<0>[  102.898566]  [1:      hciconfig:12266] Call trace:
+<0>[  102.898673]  [1:      hciconfig:12266] [<ffffff8008f24878>] __sock_create+0x154/0x27c
+<0>[  102.898684]  [1:      hciconfig:12266] [<ffffff8008f24a40>] __sys_socket+0x50/0x12c
+<0>[  102.898694]  [1:      hciconfig:12266] [<ffffff8008f24b38>] __arm64_sys_socket+0x1c/0x28
+<0>[  102.898707]  [1:      hciconfig:12266] [<ffffff800809b134>] el0_svc_common+0xd4/0x17c
+<0>[  102.898716]  [1:      hciconfig:12266] [<ffffff800809b048>] el0_svc_handler+0x60/0x78
+<0>[  102.898811]  [1:      hciconfig:12266] [<ffffff8008083cc8>] el0_svc+0x8/0x340
+
+<0>[  103.006673]  [1:      hciconfig:12266] Kernel panic - not syncing: Fatal exception
+<0>[  103.006673]  [1:      hciconfig:12266] PC is at __sock_create+0x154/0x27c
+<0>[  103.006673]  [1:      hciconfig:12266] LR is at __sock_create+0x14c/0x27c
+
+
+----
+
+"ID":"","KTIME":"103","BIN":"C","RR":"KP","DPM":"",
+"SMP":"","MER":"","PCB":"","SMD":"","CHI":"",
+"LPI":"0","CDI":"","LEV":"LOW0","DCN":"","WAK":"",
+"ASB":"0","PSITE":"0","DDRID":"01,07,01,4G","RST":"0x20000000","INFO2":"0x4E4E0000",
+"INFO3":"0xC8","RBASE":"","MAGIC":"","RSTCNT":"1",
+"ETC":"","BAT":"047/3705/0312/-01031","FAULT":"0x8","PINFO":"","HINT":"   ",
+"EPD":"","PWR":" 02","PWROFF":" 00","PINT":" 00 91 00 00 00 00","PSTAT":" 12 00",
+"PWROFFS":"","PINTS":"","PSTATS":"",
+"KLG":"","BUS":"","PANIC":"Fatal exception","PC":"sock_create+0x154/0x27c","LR":"sock_create+0x14c/0x27c",
+"BUG":"","ESR":"DABT (current EL) (0x96000005)","SMU":"","FREQ":"LIT:2210>2002- BIG:2210>2002- MIF:1352>1539- ","ODR":"PANIC,STACK,ESR,LR,PC,FAULT,PSITE,",
+"AUD":"","UNFZ":"","UP":"DONE","DOWN":"DONE",
+"CPU0":"-1  smp_call_function_many+0x2f4  (ldr_str) /   smp_call_function_many+0x290","CPU1":"-1  sock_create+0x154  (ldr_str) /   sock_create+0x14c","CPU2":"-1  _raw_spin_unlock_irq+0x14  (mrs) /   finish_task_switch+0xd8","CPU3":"-1  cpuidle_enter_state+0x328  (data_imm) /   cpuidle_enter_state+0x310","CPU4":"-0  0x0000007e5dcddf48 /   0x0000007e5dcdddec",
+"CPU5":"-0  0x0000007ef9d78b7c /   0x0000007ef9d78ad4","CPU6":"-0  0x0000007ee2ea58cc /   0x0000007ee2ea5878","CPU7":"-0  0x0000007f062b8b58 /   0x0000000071e8379c","MFC":"","STACK":"sock_create:sys_socket:__arm64_sys_socket:el0_svc_common:el0_svc_handler",
+"FPMU":" ",
+
+====
+****
